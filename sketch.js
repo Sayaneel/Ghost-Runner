@@ -9,7 +9,7 @@ var END = 0;
 var gameState = PLAY
 var gameOver,gameOverImg;
 var gameOverLine,gameOverLineG;
-var invisibleCollider1,invisibleCollider1
+var invisibleCollider1,invisibleCollider2,invisibleCollider3
 
 function preload(){
  ghostImg = loadImage("ghost-jumping.png");
@@ -46,6 +46,7 @@ function setup(){
 
   invisibleCollider1 = createSprite(10,300,3,600);
   invisibleCollider2 = createSprite(590,300,3,600);
+  invisibleCollider3 = createSprite(300,-20,600,2);
 
   
 }
@@ -58,6 +59,7 @@ function draw(){
     ghost.setCollider("circle",0,0,150);   
     invisibleCollider1.visible=false
     invisibleCollider2.visible=false
+    invisibleCollider3.visible=false
 
     if(backGround.y>600){
         backGround.y=300;
@@ -80,6 +82,7 @@ function draw(){
         ghost.collide(gameOverLineG);
         ghost.collide(invisibleCollider1);
         ghost.collide(invisibleCollider2);
+        ghost.collide(invisibleCollider3);
         spookySound.play();
     }
    
@@ -100,6 +103,7 @@ function draw(){
         //invisibleClimberG.setLifetimeEach(-1);
         gameOver.visible= true;
         spookySound.stop();
+        
     }
        
     drawSprites();
