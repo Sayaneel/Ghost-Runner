@@ -80,6 +80,7 @@ function draw(){
         ghost.collide(gameOverLineG);
         ghost.collide(invisibleCollider1);
         ghost.collide(invisibleCollider2);
+        spookySound.play();
     }
    
     if(ghost.y>560||ghost.isTouching(gameOverLineG)){
@@ -98,6 +99,7 @@ function draw(){
         //climberG.setLifetimeEach(-1);
         //invisibleClimberG.setLifetimeEach(-1);
         gameOver.visible= true;
+        spookySound.stop();
     }
        
     drawSprites();
